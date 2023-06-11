@@ -1,0 +1,11 @@
+
+@media only screen and (max-width: 768px){
+	.table-col {
+		margin-top: 40px;
+	}
+}
+
+.del {
+	padding: 4px;
+}
+

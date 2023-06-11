@@ -1,0 +1,33 @@
+:root{
+	--primary-dark: #283149;
+	--secondary-dark: #404B69;
+	--primary-light: #00818A;
+	--secondary-light: #DBEDF3;
+}
+
+.sign-up-box {
+	width: 40%;
+	background: var(--primary-dark);
+	padding: 40px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 15px var(--primary-dark);
+}
+
+.sign-up-box > h3 {
+	text-align: center;
+	color: white;
+}
+
+.sign-up-box > h3 > span{
+	padding: 5px;
+	border-radius: 3px;
+}
+
+@media only screen and (max-width: 768px){
+	.sign-up-box {
+		width: 90%;
+	}
+	.sign-up-box > h3 {
+		font-size: .8rem;
+	}
+}

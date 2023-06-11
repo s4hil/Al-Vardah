@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard - Dairy Tracker</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="icon" href="assets/imgs/favicon.png">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/common.css">
+    <style>
+        .wrapper {
+            padding: 0px;
+        }
+        .row {
+            padding: 20px;
+            padding-top: 0px;
+        }
+        html, body {
+        	overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+    <main class="wrapper container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <header class="navbar-brand">
+            <span>Dairy</span>
+            <span class="bg-danger">Tracker</span>
+        </header>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.php"> <i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="data.php"><i class="fas fa-database"></i> Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="statistics.php"><i class="fas fa-chart-line"></i> Statistics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="other.php"><i class="fas fa-box-open"></i> Other</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.php"><i class="fas fa-cogs"></i> Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-danger" href="?logout"><i class="fas fa-info-circle"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+  </div>
+</nav>
+        <section class="main-content container-fluid">
+            <div class="row mt-5 d-flex justify-content-center">
+                <div class="col-12 col-lg-4 col-sm-12 col-md-12 form-col">
+                    <h3 class="alert alert-info text-center">Add Record</h3>
+                    <form class="form">
+                        <fieldset class="form-group">
+                            <label>Date</label>
+                            <input id="date" class="form-control">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label>Quantity</label>
+                            <input type="text" id="quantity" class="form-control">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <button class="form-control btn btn-success addRecord"><i class="fas fa-plus"></i> Save</button>
+                        </fieldset>
+                        <div class="msg"></div>
+                    </form>
+                </div>
+                <div class="col-12 col-lg-8 col-sm-12 col-md-12 table-col">
+                    <h3 class="alert alert-info text-center">Date: <span id="date-label"></span></h3>
+                    <table class="table table-striped">
+                        <thead class="table-dark text-white">
+                            <tr>
+                                <th>Date</th>
+                                <th>Quantity(L)</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                        	<tr>
+                        		<td>11/6/2023</td>
+                        		<td>5</td>
+                        		<td>
+                        			<button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
+                        		</td>                         		
+                        	</tr>
+                        	<tr>
+                        		<td>10/6/2023</td>
+                        		<td>5.5</td>
+                        		<td>
+                        			<button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
+                        		</td>  
+                        	</tr>
+                        	<tr>
+                        		<td>09/6/2023</td>
+                        		<td>8</td>
+                        		<td>
+                        			<button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
+                        		</td>  
+                        	</tr>
+                        	<tr>
+                        		<td>08/6/2023</td>
+                        		<td>9</td>
+                        		<td>
+                        			<button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
+                        		</td> 
+                        	</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Begin Modal-->
+            <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <input hidden type="number" id="delRecID">
+                    Are you sure?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="close-modal">Close</button>
+                    <button type="button" class="btn btn-danger" id="delRecord">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Modal-->
+
+    <!-- Script Files -->
+    <script src="https://kit.fontawesome.com/de41999cf3.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/dashboard.js"></script>
+</body>
+</html>

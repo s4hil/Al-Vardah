@@ -1,0 +1,40 @@
+img[alt="www.000webhost.com"] {
+	display: none !important;
+}
+
+:root{
+	--primary-dark: #283149;
+	--secondary-dark: #404B69;
+	--primary-light: #00818A;
+	--secondary-light: #DBEDF3;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+.navbar-brand span:nth-child(2){
+	padding: 5px;
+	margin-left: 5px;
+	border-radius: 3px;
+	animation: blink 1.5s infinite;
+}
+
+.wrapper {
+	width: 100%;
+}
+
+.main-content{
+	width: 100% !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+@keyframes blink{
+	0%{opacity: 0}
+	50%{opacity: 1}
+	100%{opacity: 0}
+}
